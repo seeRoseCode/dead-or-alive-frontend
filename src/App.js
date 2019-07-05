@@ -1,24 +1,24 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import UserContainer from './components/UserContainer'
+import MapContainer from './components/MapContainer'
 
 function App() {
+
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header> INSERT SEMANTIC UI HEADER </header>
+      <h1> WELCOME TO DEAD OR ALIVE? </h1>
+      <img src="https://vignette.wikia.nocookie.net/marvel_dc/images/4/4e/Two-Face_0002.jpg/revision/latest?cb=20110522193536"></img>
+      <footer>
+        <p>Created by |T|R|P| </p>
+      </footer>
     </div>
   );
 }
