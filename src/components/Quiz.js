@@ -85,37 +85,38 @@ this.setState({submitted: true})
        </Form.Field>
        <Form.Field>
          <Radio
-           label='their brain'
-           name='radioGroup'
+           label=' their brain '
+           name='radioGroup1'
 
            q1Answer='their brain'
            checked={this.state.q1Answer === 'their brain'}
            onChange={this.handleq1Change}
          />
          <Radio
-           label='their face'
-           name='radioGroup'
+           label=' their face '
+           name='radioGroup1'
 
            q1Answer='their face'
            checked={this.state.q1Answer === 'their face'}
            onChange={this.handleq1Change}
          />
          <Radio
-           label='their personality'
-           name='radioGroup'
+           label=' their personality '
+           name='radioGroup1'
 
            q1Answer='their personality'
            checked={this.state.q1Answer === 'their personality'}
            onChange={this.handleq1Change}
          />
          <Radio
-           label='their body'
-           name='radioGroup'
+           label=' their body '
+           name='radioGroup1'
 
            q1Answer='their body'
            checked={this.state.q1Answer === 'their body'}
            onChange={this.handleq1Change}
          />
+
        </Form.Field>
 
        <Form.Field id="run">
@@ -123,32 +124,32 @@ this.setState({submitted: true})
        </Form.Field>
        <Form.Field>
          <Radio
-           label="Who me?! I'm way too slow!"
-           name='radioGroup'
+           label=" Who me?! I'm way too slow! "
+           name='radioGroup2'
 
            q2Answer="Who me?! I'm way too slow!"
            checked={this.state.q2Answer === "Who me?! I'm way too slow!"}
            onChange={this.handleq2Change}
          />
          <Radio
-           label="I'm training for one right now!"
-           name='radioGroup'
+           label=" I'm training for one right now! "
+           name='radioGroup2'
 
            q2Answer="I'm training for one right now!"
            checked={this.state.q2Answer === "I'm training for one right now!"}
            onChange={this.handleq2Change}
          />
          <Radio
-           label="I would love to but I don't have the time!"
-           name='radioGroup'
+           label=" I would love to but I don't have the time! "
+           name='radioGroup2'
 
            q2Answer="I would love to but I don't have the time!"
-           checked={this.state.q1Answer || this.state.q2Answer === "I would love to but I don't have the time!"}
+           checked={this.state.q2Answer === "I would love to but I don't have the time!"}
            onChange={this.handleq2Change}
          />
          <Radio
-           label="I hate running!"
-           name='radioGroup'
+           label=" I hate running! "
+           name='radioGroup2'
 
            q2Answer="I hate running!"
            checked={this.state.q2Answer === "I hate running!"}
@@ -162,34 +163,34 @@ this.setState({submitted: true})
        </Form.Field>
        <Form.Field>
          <Radio
-           label="Lately, I just want meat. like any kind of flesh at all will work!"
-           name='radioGroup'
+           label=" Lately, I just want meat. like any kind of flesh at all will work! "
+           name='radioGroup3'
 
            q3Answer="Lately, I just want meat. Like, any kind of flesh at all will work!"
            checked={this.state.q3Answer === "Lately, I just want meat. Like, any kind of flesh at all will work!"}
            onChange={this.handleq3Change}
          />
-      
+
          <Radio
-           label="Honestly, I've been craving junk food lately"
-           name='radioGroup'
+           label="Honestly, I've been craving junk food lately "
+           name='radioGroup3'
 
            q3Answer="Honestly, I've been craving junk food lately"
            checked={this.state.q3Answer === "Honestly, I've been craving junk food lately"}
            onChange={this.handleq3Change}
          />
          <Radio
-           label="I've been vegan for a month now. I really want a f***ing hamburger."
-           name='radioGroup'
+           label=" I've been vegan for a month now. I really want a f***ing hamburger. "
+           name='radioGroup3'
 
            q3Answer="I've been vegan for a month now. I really want a f***ing hamburger."
            checked={this.state.q3Answer === "I've been vegan for a month now. I really want a f***ing hamburger."}
            onChange={this.handleq3Change}
          />
-      
+
          <Radio
-           label="Ice Cream and french fries!"
-           name='radioGroup'
+           label=" Ice Cream and french fries! "
+           name='radioGroup3'
 
            q3Answer="Ice Cream and french fries!"
            checked={this.state.q3Answer === "Ice Cream and french fries!"}
@@ -203,24 +204,24 @@ this.setState({submitted: true})
        </Form.Field>
        <Form.Field>
          <Radio
-           label="I hate her. We're just so different now. I've been waiting for my chance to tear her apart."
-           name='radioGroup'
+           label=" I hate her. We're just so different now. I've been waiting for my chance to tear her apart. "
+           name='radioGroup4'
 
            q4Answer="I hate her. We're just so different now. I've been waiting for my chance to tear her apart."
            checked={this.state.q4Answer === "I hate her. We're just so different now. I've been waiting for my chance to tear her apart."}
            onChange={this.handleq4Change}
          />
          <Radio
-           label="She ruined my childhood. I don't talk to her anymore"
-           name='radioGroup'
+           label=" She ruined my childhood. I don't talk to her anymore "
+           name='radioGroup4'
 
            q4Answer="She ruined my childhood. I don't talk to her anymore"
            checked={this.state.q4Answer === "She ruined my childhood. I don't talk to her anymore"}
            onChange={this.handleq4Change}
          />
          <Radio
-           label="My mom is my best friend!"
-           name='radioGroup'
+           label=" My mom is my best friend! "
+           name='radioGroup4'
 
            q4Answer="My mom is my best friend!"
            checked={this.state.q4Answer === "My mom is my best friend!"}
@@ -228,8 +229,8 @@ this.setState({submitted: true})
 
          />
          <Radio
-           label="I hate her. We're just so different now. She just sits and waits for any chance to tear me apart"
-           name='radioGroup'
+           label=" I hate her. We're just so different now. She just sits and waits for any chance to tear me apart "
+           name='radioGroup4'
 
            q4Answer="I hate her. We're just so different now. She just sits and waits for any chance to tear me apart"
            checked={this.state.q4Answer === "I hate her. We're just so different now. She just sits and waits for any chance to tear me apart"}
@@ -243,8 +244,8 @@ this.setState({submitted: true})
        </Form.Field>
        <Form.Field>
          <Radio
-           label= "I’m well rested"
-           name='radioGroup'
+           label= " I’m well rested "
+           name='radioGroup5'
 
            q5Answer="I’m well rested"
            checked={this.state.q5Answer === "I’m well rested"}
@@ -252,8 +253,8 @@ this.setState({submitted: true})
 
          />
          <Radio
-           label="I don’t need much sleep"
-           name='radioGroup'
+           label=" I don’t need much sleep "
+           name='radioGroup5'
 
            q5Answer="I don’t need much sleep"
            checked={this.state.q5Answer === "I don’t need much sleep"}
@@ -261,8 +262,8 @@ this.setState({submitted: true})
 
          />
          <Radio
-           label="I’m dead on my feet"
-           name='radioGroup'
+           label=" I’m dead on my feet "
+           name='radioGroup5'
 
            q5Answer="I’m dead on my feet"
            checked={this.state.q5Answer === "I’m dead on my feet"}
@@ -270,8 +271,8 @@ this.setState({submitted: true})
 
          />
          <Radio
-           label="Who needs rest when you've got coldbrew?"
-           name='radioGroup'
+           label=" Who needs rest when you've got coldbrew? "
+           name='radioGroup5'
 
            q5Answer="Who needs rest when you've got coldbrew?"
            checked={this.state.q5Answer === "Who needs rest when you've got coldbrew?"}
@@ -285,8 +286,8 @@ this.setState({submitted: true})
        </Form.Field>
        <Form.Field>
          <Radio
-           label= "Vibrant"
-           name='radioGroup'
+           label= " Vibrant "
+           name='radioGroup6'
 
            q6Answer="Vibrant"
            checked={this.state.q6Answer === "Vibrant"}
@@ -294,8 +295,8 @@ this.setState({submitted: true})
 
          />
          <Radio
-           label="Pale"
-           name='radioGroup'
+           label=" Pale "
+           name='radioGroup6'
 
            q6Answer="Pale"
            checked={this.state.q6Answer === "Pale"}
@@ -303,8 +304,8 @@ this.setState({submitted: true})
 
          />
          <Radio
-           label="Lifeless"
-           name='radioGroup'
+           label=" Lifeless "
+           name='radioGroup6'
 
            q6Answer="Lifeless"
            checked={this.state.q6Answer === "Lifeless"}
@@ -312,8 +313,8 @@ this.setState({submitted: true})
 
          />
          <Radio
-           label="Healthy"
-           name='radioGroup'
+           label=" Healthy "
+           name='radioGroup6'
 
            q6Answer="Healthy"
            checked={this.state.q6Answer === "Healthy"}
@@ -327,8 +328,8 @@ this.setState({submitted: true})
        </Form.Field>
        <Form.Field>
          <Radio
-           label= "Graceful"
-           name='radioGroup'
+           label= " Graceful "
+           name='radioGroup7'
 
            q7Answer="Graceful"
            checked={this.state.q7Answer === "Graceful"}
@@ -336,24 +337,24 @@ this.setState({submitted: true})
 
          />
          <Radio
-           label="Brisk"
-           name='radioGroup'
+           label=" Brisk "
+           name='radioGroup7'
 
            q7Answer="Brisk"
            checked={this.state.q7Answer === "Brisk"}
            onChange={this.handleq7Change}
          />
          <Radio
-           label="Staggering"
-           name='radioGroup'
+           label=" Staggering"
+           name='radioGroup7'
 
            q7Answer="Staggering"
            checked={this.state.q7Answer === "Staggering"}
            onChange={this.handleq7Change}
          />
          <Radio
-           label="I haven’t gotten out of bed"
-           name='radioGroup'
+           label=" I haven’t gotten out of bed "
+           name='radioGroup7'
 
            q7Answer="I haven’t gotten out of bed"
            checked={this.state.q7Answer === "I haven’t gotten out of bed"}
@@ -366,29 +367,29 @@ this.setState({submitted: true})
        </Form.Field>
        <Form.Field>
          <Radio
-           label= "I”m not much of a talker"
-           name='radioGroup'
+           label= " I”m not much of a talker "
+           name='radioGroup8'
            q8Answer="I”m not much of a talker"
            checked={this.state.q8Answer === "I”m not much of a talker"}
            onChange={this.handleq8Change}
          />
          <Radio
-           label="I speak my mind"
-           name='radioGroup'
+           label=" I speak my mind "
+           name='radioGroup8'
            q8Answer="I speak my mind"
            checked={this.state.q8Answer === "I speak my mind"}
            onChange={this.handleq8Change}
          />
          <Radio
-           label="I have trouble expressing myself verbally"
-           name='radioGroup'
+           label=" I have trouble expressing myself verbally "
+           name='radioGroup8'
            q8Answer="I have trouble expressing myself verbally"
            checked={this.state.q8Answer === "I have trouble expressing myself verbally"}
            onChange={this.handleq8Change}
          />
          <Radio
-           label="Communication is key"
-           name='radioGroup'
+           label=" Communication is key "
+           name='radioGroup8'
            q8Answer="Communication is key"
            checked={this.state.q8Answer === "Communication is key"}
            onChange={this.handleq8Change}

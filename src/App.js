@@ -12,11 +12,11 @@ import Quiz from './components/Quiz'
 function App() {
 
   return (
-    <div 
+    <div
     className="App">
       <Header />
       <h1>DEAD OR ALIVE....</h1>
-
+      <Quiz />
     </div>
   );
 }
