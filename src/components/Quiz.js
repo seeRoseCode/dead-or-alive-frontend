@@ -310,8 +310,9 @@ class Quiz extends React.Component{
         </Grid.Row>
       </Grid>
   </Form.Field>
-      <Button type='submit' onClick={this.handleSubmit}>Submit</Button>
+<Button positive onClick={this.handleSubmit} id="button-submit" >Submit</Button>
   </Form>
+
      {this.state.submitted && this.state.zombie? <ZombieCard /> : null}
      {this.state.submitted && !this.state.zombie? <HumanCard /> : null}
   </div>
