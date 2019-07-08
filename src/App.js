@@ -6,17 +6,17 @@ import UserContainer from './components/UserContainer'
 import MapContainer from './components/MapContainer'
 import Header from './components/Header'
 import Quiz from './components/Quiz'
+import Test from './components/Test'
 
 
 
 function App() {
 
   return (
-    <div 
+    <div
     className="App">
       <Header />
       <h1>DEAD OR ALIVE....</h1>
-
     </div>
   );
 }
