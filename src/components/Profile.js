@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import HumanCard from './HumanCard'
 import ZombieCard from './ZombieCard'
+import Test from './Test'
 
 class Profile extends Component {
 
   state = {
-    user: {}
+    user: {},
   }
 
   componentDidMount() {
