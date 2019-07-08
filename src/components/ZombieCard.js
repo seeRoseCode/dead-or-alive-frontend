@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 
 const ZombieCard = props =>{
 
@@ -8,15 +8,15 @@ const ZombieCard = props =>{
     <div className="ui column">
       <div className="ui card">
         <div className="image">
-          <img alt="oh no!" src={"https://i.imgur.com/EciX0b0.jpg"} />
+        <img src={props.user.img_url} alt="profile"  />
         </div>
         <div className="content">
           <div className="header">
-            {"Zombie Bill Murray"}
+            {"Zombie"}
           </div>
 
           <div className="meta text-wrap">
-            <small>{"Uh Oh"}</small>
+            <small>{"Brainnnsssss...."}</small>
           </div>
         </div>
         </div>

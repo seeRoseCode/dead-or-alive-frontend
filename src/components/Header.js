@@ -1,45 +1,51 @@
 import React from "react";
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 import { Input, Menu } from 'semantic-ui-react'
+import CreateUser from './CreateUser'
 
 class Header extends React.Component {
-  state = { activeItem: 'home' }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  state = { activeItem: ' ' }
+
+  image = require('../images/logo.png')
 
   render() {
-    const { activeItem } = this.state
-
     return (
       <Menu secondary>
-        <Menu.Item 
-        name='home' 
-        active={activeItem === 'home'} 
-        onClick={this.handleItemClick} 
+      <Menu.Item>
+          <img 
+          src={this.image}
+          style={{
+            alignSelf: 'center',
+            height: 70,
+            width: 125,
+            borderWidth: 1,
+          }} 
+          />
+        </Menu.Item>  
+
+        <Menu.Item
+          name='Home'
+          active={this.state.activeItem === 'home'}
+          onClick={this.props.handleClick}
         />
 
         <Menu.Item
-          name='messages'
-          active={activeItem === 'messages'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
           name='New User'
-          active={activeItem === 'newUser'}
-          onClick={this.handleItemClick}
+          active={this.state.activeItem === 'newUser'}
+          onClick={this.props.handleClick}
         />
         <Menu.Menu position='right'>
           <Menu.Item>
-          LOGIN:
-            <Input icon='userName' placeholder='Username' />
+          LOGIN HERE:
+            <Input name='username' placeholder='Username' />
           </Menu.Item>
           <Menu.Item>
-            <Input icon='search' placeholder='Password' />
+            <Input name='password' placeholder='Password' />
           </Menu.Item>
           <Menu.Item
             name='submit'
-            active={activeItem === 'submit'}
-            onClick={this.handleItemClick}
+            onClick={(e) => this.props.handleSubmit(e)}
           />
         </Menu.Menu>
       </Menu>

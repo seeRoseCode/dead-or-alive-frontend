@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 import { Button, Checkbox, Form, Radio } from 'semantic-ui-react'
 import HumanCard from './HumanCard'
 import ZombieCard from './ZombieCard'
