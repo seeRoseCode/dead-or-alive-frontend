@@ -1,45 +1,55 @@
 import React from "react";
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 import { Input, Menu } from 'semantic-ui-react'
 
 class Header extends React.Component {
-  state = { activeItem: 'home' }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  state = { 
+    activeItem: ' ' ,
+  }
+
+  image = require('../images/logo.png')
 
   render() {
-    const { activeItem } = this.state
-
     return (
       <Menu secondary>
-        <Menu.Item 
-        name='home' 
-        active={activeItem === 'home'} 
-        onClick={this.handleItemClick} 
+      <Menu.Item>
+          <img 
+          src={this.image} alt="logo"
+          style={{
+            alignSelf: 'center',
+            height: 70,
+            width: 125,
+            borderWidth: 1,
+          }} 
+          />
+        </Menu.Item>  
+
+        <Menu.Item
+          name='Home'
+          active={this.state.activeItem === 'home'}
+          onClick={this.props.handleClick}
         />
 
         <Menu.Item
-          name='messages'
-          active={activeItem === 'messages'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
           name='New User'
-          active={activeItem === 'newUser'}
-          onClick={this.handleItemClick}
+          active={this.state.activeItem === 'newUser'}
+          onClick={this.props.handleClick}
         />
-        <Menu.Menu position='right'>
+        
+        <Menu.Menu position='right' name='input'>
           <Menu.Item>
-          LOGIN:
-            <Input icon='userName' placeholder='Username' />
+          LOGIN HERE:
+            <Input name='username' type='text' placeholder='Username' 
+            onChange={(e) => this.props.onUChange("username", e.target.value)}/>
           </Menu.Item>
           <Menu.Item>
-            <Input icon='search' placeholder='Password' />
+            <Input name='password' type='text' placeholder='Password'
+            onChange={(e) => this.props.onUChange("password", e.target.value)}/>
           </Menu.Item>
           <Menu.Item
             name='submit'
-            active={activeItem === 'submit'}
-            onClick={this.handleItemClick}
+            onClick={this.props.handleSubmit}
           />
         </Menu.Menu>
       </Menu>
