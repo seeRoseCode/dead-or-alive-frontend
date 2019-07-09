@@ -1,10 +1,11 @@
 import React from "react";
 // import { Route } from 'react-router-dom';
+import { Input, Menu } from 'semantic-ui-react'
 
 const ZombieCard = props =>{
 
   return (
-    <div className='ZombieCard'> 
+    <div className='ZombieCard'>
     <h1>{props.user.username}</h1>
     <div className="ui column">
       <div className="ui card">
@@ -15,7 +16,10 @@ const ZombieCard = props =>{
           <div className="header">
             {"Zombie"}
           </div>
-
+          <Menu.Item
+            name='Quiz'
+            onClick={props.handleClick}
+          />
           <div className="meta text-wrap">
             <small>{"Brainnnsssss...."}</small>
           </div>
