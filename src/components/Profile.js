@@ -4,25 +4,15 @@ import ZombieCard from './ZombieCard'
 
 class Profile extends Component {
 
-  state = {
-    user: {}
-  }
-
-  componentDidMount() {
-    const id = this.props.match.params.id
-    fetch('http://localhost:3000/profile/'+id)
-    .then(res => res.json())
-    .then(res => this.setState({ user: res }) )
-  }
-
-  getProfileType = ()=> {
-    if(this.state.user.zombie)
-      return <ZombieCard user={this.state.user} />
+  getProfileType = ()  => { 
+    if(this.props.user.zombie)
+      return <ZombieCard user={this.props.user} />
     else
-      return <HumanCard user={this.state.user} />
+      return <HumanCard user={this.props.user} />
   }
 
   render() {
+    console.log("USER:", this.props)
     return (
       <div id="profile">
         { this.getProfileType() }

@@ -5,6 +5,7 @@ const ZombieCard = props =>{
 
   return (
     <div className='ZombieCard'> 
+    <h1>{props.user.username}</h1>
     <div className="ui column">
       <div className="ui card">
         <div className="image">

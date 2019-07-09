@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Component } from 'react'
 // import { Route } from 'react-router-dom';
 
-const CreateUser = props =>{
+class CreateUser extends Component {
 
+  render() {
   return (
     <div className='createUser'> 
       <form style={{ float: 'left'}}>
@@ -16,12 +17,13 @@ const CreateUser = props =>{
         </div>
         <div>
           <input type="imgUrl" name="imgUrl" placeholder="Image URL" />
-          <label htmlFor="password"> Enter an image URL</label><br/><br/>
+          <label htmlFor="url"> Enter an image URL</label><br/><br/>
         </div>
         <input type="submit" value="Create Account" />
       </form>
     </div>
-  );
+    );
+  }
 }
 
 export default CreateUser;

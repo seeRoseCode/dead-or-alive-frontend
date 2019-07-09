@@ -1,11 +1,12 @@
 import React from "react";
 // import { Route } from 'react-router-dom';
 import { Input, Menu } from 'semantic-ui-react'
-import CreateUser from './CreateUser'
 
 class Header extends React.Component {
 
-  state = { activeItem: ' ' }
+  state = { 
+    activeItem: ' ' ,
+  }
 
   image = require('../images/logo.png')
 
@@ -14,7 +15,7 @@ class Header extends React.Component {
       <Menu secondary>
       <Menu.Item>
           <img 
-          src={this.image}
+          src={this.image} alt="logo"
           style={{
             alignSelf: 'center',
             height: 70,
@@ -35,17 +36,20 @@ class Header extends React.Component {
           active={this.state.activeItem === 'newUser'}
           onClick={this.props.handleClick}
         />
-        <Menu.Menu position='right'>
+        
+        <Menu.Menu position='right' name='input'>
           <Menu.Item>
           LOGIN HERE:
-            <Input name='username' placeholder='Username' />
+            <Input name='username' type='text' placeholder='Username' 
+            onChange={(e) => this.props.onUChange("username", e.target.value)}/>
           </Menu.Item>
           <Menu.Item>
-            <Input name='password' placeholder='Password' />
+            <Input name='password' type='text' placeholder='Password'
+            onChange={(e) => this.props.onUChange("password", e.target.value)}/>
           </Menu.Item>
           <Menu.Item
             name='submit'
-            onClick={(e) => this.props.handleSubmit(e)}
+            onClick={this.props.handleSubmit}
           />
         </Menu.Menu>
       </Menu>

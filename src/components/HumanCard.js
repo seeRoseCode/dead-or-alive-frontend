@@ -4,7 +4,7 @@ import React from "react";
 const HumanCard = props =>{
   console.log(props.user)
   return (
-    <div className='humanCard'> 
+    <div className='humanCard' style={{ float: 'center'}}> 
       <h1>{props.user.username}</h1>
       <div className="ui column">
         <div className="ui card">
