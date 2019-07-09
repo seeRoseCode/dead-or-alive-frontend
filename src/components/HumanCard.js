@@ -1,27 +1,30 @@
 import React from "react";
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 
 const HumanCard = props =>{
-
+  console.log(props.user)
   return (
-    <div className='humanCard'> 
-    <div className="ui column">
-      <div className="ui card">
-        <div className="image">
-          <img alt="oh no!" src={"https://i.imgur.com/1DLxwJZ.jpg"} />
-        </div>
-        <div className="content">
-          <div className="header">
-            {"Human"}
-          </div>
 
-          <div className="meta text-wrap">
-            <small>{"I'm alive"}</small>
+    <div className='humanCard' style={{ float: 'center'}}> 
+      <h1>{props.user.username}</h1>
+      <div className="ui column">
+        <div className="ui card">
+          <div className="image">
+            <img src={props.user.img_url} alt="profile"  />
           </div>
-        </div>
+          <div className="content">
+            <div className="header">
+              {"Human"}
+            </div>
+
+            <div className="meta text-wrap">
+              <small>{"I'm alive"}</small>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
   )
 }
 
