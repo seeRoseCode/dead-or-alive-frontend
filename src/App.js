@@ -23,7 +23,7 @@ class App extends Component {
       quiz_id: " "
     },
   }
-  
+
   image = require('./images/bannerlogo.png')
 
 
@@ -34,11 +34,12 @@ class App extends Component {
     }
     else if (name === 'New User') {
       this.setState({ redirect: <Redirect to='/CreateUser' /> })
-    } 
+    }
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log(e.target)
 
     let object = {
       username: this.state.user.username,
@@ -64,7 +65,7 @@ class App extends Component {
       }
     })
   }
-  
+
   onUChange = (key, value) => {
     this.setState({user: {...this.state.user, [key]: value}})
   }
@@ -77,10 +78,11 @@ class App extends Component {
       password: this.state.user.password,
       img_url: this.state.user.img_url
     }
-
-    fetch('http://localhost:3000/api/v1/login', {
+    console.log(object)
+    fetch('http://localhost:3000/api/v1/users', {
     method: 'POST',
-    headers: {'Content-Type': 'application/json', Accepts: 'application/json'},
+    headers: {'Content-Type': 'application/json', Accepts: 'application/json','Access-Control-Allow-Origin':'*'},
+    mode: "cors",
     body: JSON.stringify({user: object })
     })
     .then(res => res.json())
@@ -90,7 +92,7 @@ class App extends Component {
         this.setState({errors: data.message}, () => console.log("Errors:", this.state.errors))
       }
       else {
-        this.setState({user: data.user, redirect: <Redirect to='/profile' /> })
+        this.setState({object, redirect: <Redirect to='/profile' /> })
         localStorage.setItem('token', data.jwt)
         window.history.pushState({url: "/profile"}, "", "/profile")
         this.forceUpdate()
@@ -99,22 +101,22 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.user)
+    // console.log(this.state.user)
     return (
-      <div className="App">  
+      <div className="App">
         <Router>
           {this.state.redirect}
 
-          <Header 
-            handleClick={this.handleClick} 
-            handleSubmit={this.handleSubmit} 
+          <Header
+            handleClick={this.handleClick}
+            handleSubmit={this.handleSubmit}
             user={this.state.user}
             onUChange={this.onUChange}
           />
           <img src={this.image} style={{ alignSelf: 'center', height: 85, width: 450,}} alt="banner"/>
 
           <Route exact path="/CreateUser" render = {() => (
-            <CreateUser onUChange={this.onUChange} user={this.state.user} createUser={this.state.createUser}/>)} />
+            <CreateUser onUChange={this.onUChange} user={this.state.user} createUser={this.createUser}/>)} />
 
           <Route exact path="/Quiz" component={Quiz} />
 
