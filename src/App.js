@@ -5,6 +5,7 @@ import './App.css';
 // import MapContainer from './components/MapContainer'
 import Header from './components/Header'
 import Quiz from './components/Quiz'
+
 import CreateUser from './components/CreateUser'
 import Profile from './components/Profile'
 
@@ -24,6 +25,7 @@ class App extends Component {
   }
   
   image = require('./images/bannerlogo.png')
+
 
   handleClick = (e, { name }) => {
     // console.log(name)
@@ -90,7 +92,6 @@ class App extends Component {
       </div>
     );
   }
-
 }
 
 export default App;
