@@ -8,6 +8,7 @@ import Quiz from './components/Quiz'
 import CreateUser from './components/CreateUser'
 import Profile from './components/Profile'
 
+
 class App extends Component {
 
   state = {
@@ -32,7 +33,6 @@ class App extends Component {
     else if (name === 'New User') {
       this.setState({ redirect: <Redirect to='/CreateUser' /> })
     } 
-
   }
 
   handleSubmit = (e) => {
@@ -90,6 +90,7 @@ class App extends Component {
       </div>
     );
   }
+
 }
 
 export default App;
