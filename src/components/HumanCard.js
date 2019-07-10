@@ -1,6 +1,8 @@
 import React from "react";
 import { Card, Icon, Image } from 'semantic-ui-react'
 import zombieImage from '../images/zombie-girl.png'
+
+
 // import { Route } from 'react-router-dom';
 
 
@@ -16,6 +18,7 @@ class HumanCard extends React.Component {
 render(){
   return (
     <div className='humanCard' style={{ float: 'center'}}>
+
       <div className="ui column">
         <div className="ui card">
           <div className="image">
@@ -25,7 +28,10 @@ render(){
             <div className="header">
             Name: {this.props.user.username}<br/><br/>
             </div>
-
+            <Menu.Item
+              name='Quiz'
+              onClick={props.handleClick}
+            />
             <div className="meta text-wrap">
               <small>STATUS: {"I'm alive"}</small>
             </div>

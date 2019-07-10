@@ -1,5 +1,6 @@
 import React from "react";
 // import { Route } from 'react-router-dom';
+import { Input, Menu } from 'semantic-ui-react'
 
 class ZombieCard extends React.Component {
 
@@ -21,7 +22,10 @@ class ZombieCard extends React.Component {
           <div className="header">
           Name: {this.props.user.username}<br/><br/>
           </div>
-
+          <Menu.Item
+            name='Quiz'
+            onClick={props.handleClick}
+          />
           <div className="meta text-wrap">
             <small>STATUS: {"Brainnnsssss...."}</small>
           </div>
