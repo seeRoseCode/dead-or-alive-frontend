@@ -9,7 +9,8 @@ import ZombieCard from './ZombieCard'
 class Quiz extends React.Component{
   state={
     zombieScore: 0,
-    submitted: false,
+    // zombieStatus: false,
+    // submitted: false,
     questions: [],
     allAnswerData: []
   }
@@ -67,17 +68,6 @@ class Quiz extends React.Component{
     this.setState({ q8Answer: e.target.innerText })
   }
 
-  handleSubmit = (e) => {
-    if (this.state.zombieScore > 4){
-      this.setState({zombie: true})
-    }
-    else {
-      this.setState({zombie: false})
-    }
-    this.setState({submitted: true})
-
-  }
-
   componentDidMount(){
     fetch('http://localhost:3000/questions')
     .then(res =>res.json())
@@ -97,7 +87,6 @@ class Quiz extends React.Component{
   }
 
   render(){
-    console.log(this.state)
     return(
       <div>
       <Form>
@@ -310,14 +299,14 @@ class Quiz extends React.Component{
         </Grid.Row>
       </Grid>
   </Form.Field>
-<Button positive onClick={this.handleSubmit} id="button-submit" >Submit</Button>
+<Button positive onClick={(e) => this.props.handleQuizForm(e, this.state.zombieScore, this.props)} id="button-submit" >Submit</Button>
   </Form>
-
-     {this.state.submitted && this.state.zombie? <ZombieCard /> : null}
-     {this.state.submitted && !this.state.zombie? <HumanCard /> : null}
   </div>
     )
   }
 }
 
 export default Quiz
+//
+// {this.state.submitted && this.state.zombie? <ZombieCard /> : null}
+// {this.state.submitted && !this.state.zombie? <HumanCard /> : null}

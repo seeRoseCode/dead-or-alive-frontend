@@ -5,11 +5,11 @@ import Test from './Test'
 
 class Profile extends Component {
 
-  getProfileType = ()  => { 
+  getProfileType = ()  => {
     if(this.props.user.zombie)
-      return <ZombieCard user={this.props.user} />
+      return <ZombieCard handleClick={this.props.handleClick} user={this.props.user} />
     else
-      return <HumanCard user={this.props.user} />
+      return <HumanCard handleClick={this.props.handleClick} user={this.props.user} />
   }
 
   render() {
