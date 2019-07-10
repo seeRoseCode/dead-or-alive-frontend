@@ -22,7 +22,7 @@ class App extends Component {
       zombie: false,
       location_id: " ",
       quiz_id: " "
-    }
+    },
   }
 
   image = require('./images/bannerlogo.png')
@@ -39,10 +39,12 @@ class App extends Component {
     else if (name === 'Quiz') {
       this.setState({ redirect: <Redirect to='/Quiz' /> })
     }
+
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log(e.target)
 
     let object = {
       username: this.state.user.username,
@@ -76,6 +78,7 @@ class App extends Component {
     this.setState({user: {...this.state.user, [key]: value}})
   }
 
+
   handleQuizForm = (e, score, user) => {
     let userId = user.userInfo.id
 
@@ -103,6 +106,39 @@ console.log(this.state.user)
 
 
   render() {
+
+  createUser = (e) => {
+    e.preventDefault()
+
+    let object = {
+      username: this.state.user.username,
+      password: this.state.user.password,
+      img_url: this.state.user.img_url
+    }
+    console.log(object)
+    fetch('http://localhost:3000/api/v1/users', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', Accepts: 'application/json','Access-Control-Allow-Origin':'*'},
+    mode: "cors",
+    body: JSON.stringify({user: object })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.message) {
+        alert("Error")
+        this.setState({errors: data.message}, () => console.log("Errors:", this.state.errors))
+      }
+      else {
+        this.setState({object, redirect: <Redirect to='/profile' /> })
+        localStorage.setItem('token', data.jwt)
+        window.history.pushState({url: "/profile"}, "", "/profile")
+        this.forceUpdate()
+      }
+    })
+  }
+
+  render() {
+
     return (
       <div className="App">
         <Router>
@@ -116,13 +152,18 @@ console.log(this.state.user)
           />
           <img src={this.image} style={{ alignSelf: 'center', height: 85, width: 450,}} alt="banner"/>
 
-          <Route exact path="/CreateUser" component={CreateUser} />
+
 
           {localStorage.getItem('token') === null ? <h1> You're not logged in!</h1> : <Route exact path="/quiz" render = {() => (
             <Quiz userInfo={this.state.user} handleQuizForm={this.handleQuizForm}/>)}/>}
 
           <Route exact path="/profile" render = {() => (
             <Profile handleClick={this.handleClick} user={this.state.user}/>)}/>
+      
+          <Route exact path="/CreateUser" render = {() => (
+            <CreateUser onUChange={this.onUChange} user={this.state.user} createUser={this.createUser}/>)} />
+
+          <Route exact path="/Quiz" component={Quiz} />
         </Router>
       </div>
     );

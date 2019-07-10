@@ -49,9 +49,9 @@ class Header extends React.Component {
           </Menu.Item>
           <Menu.Item
             name='submit'
-            onClick={this.props.handleSubmit}
-          /> 
-      />}
+
+            onClick={(e) => this.props.handleSubmit}
+          />
         </Menu.Menu>
       </Menu>
     )
