@@ -1,23 +1,32 @@
 import React from "react";
+import { Card, Icon, Image } from 'semantic-ui-react'
+import zombieImage from '../images/zombie-girl.png'
 
-import { Input, Menu, Card, Icon, Image } from 'semantic-ui-react'
 
 // import { Route } from 'react-router-dom';
 
-const HumanCard = props =>{
-  console.log(props.user)
-  return (
 
+
+
+class HumanCard extends React.Component {
+  //
+  imgUrl = () => {
+    if(this.props.user.zombie === false && this.props.user.img_url === null) {return 'https://image.flaticon.com/icons/svg/145/145859.svg'}
+    else {return this.props.user.img_url}
+  }
+
+render(){
+  return (
     <div className='humanCard' style={{ float: 'center'}}>
-      <h1>{props.user.username}</h1>
+
       <div className="ui column">
         <div className="ui card">
           <div className="image">
-            <img src={props.user.img_url} alt="profile"  />
+            <img src={this.imgUrl()} alt="profile"/>
           </div>
           <div className="content">
             <div className="header">
-            Name: {props.user.username}<br/><br/>
+            Name: {this.props.user.username}<br/><br/>
             </div>
             <Menu.Item
               name='Quiz'
@@ -49,6 +58,7 @@ const HumanCard = props =>{
     </Card.Content>
   </Card>
   ) */}
+}
 }
 
 export default HumanCard;

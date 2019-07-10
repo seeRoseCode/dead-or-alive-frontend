@@ -18,7 +18,7 @@ class App extends Component {
       username: " ",
       password: " ",
       id: "",
-      img_url: " ",
+      img_url: null,
       zombie: false,
       location_id: " ",
       quiz_id: " "
@@ -124,7 +124,6 @@ class App extends Component {
 
   createUser = (e) => {
     e.preventDefault()
-
     let object = {
       username: this.state.user.username,
       password: this.state.user.password,
@@ -152,6 +151,11 @@ class App extends Component {
     })
   }
 
+    // handleLogout = () => {
+    //   localStorage.removeItem('token')
+    //   this.setState({ redirect: <Redirect to='/' /> })
+    // }
+
   render() {
 
     return (
@@ -167,8 +171,10 @@ class App extends Component {
           />
           <img src={this.image} style={{ alignSelf: 'center', height: 85, width: 450,}} alt="banner"/>
 
+
           <Route exact path="/quiz" render = {() => (
             <Quiz redirect={this.state.redirect} userInfo={this.state.user} handleQuizForm={this.handleQuizForm}/>)}/>
+
 
           <Route exact path="/profile" render = {() => (
             <Profile handleClick={this.handleClick} user={this.state.user}/>)}/>

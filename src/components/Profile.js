@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import HumanCard from './HumanCard'
 import ZombieCard from './ZombieCard'
-import Test from './Test'
 
 class Profile extends Component {
 
@@ -13,10 +12,9 @@ class Profile extends Component {
   }
 
   render() {
-    console.log("USER:", this.props)
     return (
       <div id="profile">
-        { this.getProfileType() }
+      {this.getProfileType()}
       </div>
     )
   }
