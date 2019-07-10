@@ -50,7 +50,7 @@ class Header extends React.Component {
           <Menu.Item
             name='submit'
 
-            onClick={(e) => this.props.handleSubmit}
+            onClick={(e) => this.props.handleSubmit(e)}
           />
         </Menu.Menu>
       </Menu>

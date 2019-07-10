@@ -58,7 +58,7 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(data => {
-      // console.log(data)
+      console.log(data)
       if (data.message) {
         alert("Error")
         this.setState({errors: data.message}, () => console.log("Errors:", this.state.errors))
@@ -89,6 +89,15 @@ class App extends Component {
         zombie: zombieChange
         }
       })
+
+    }
+    else {
+      let zombieChange = user.userInfo.zombie = !user.userInfo.zombie
+      this.setState({
+        user: { ...this.state.user,
+        zombie: zombieChange
+        }
+      })
     }
     fetch(`http://localhost:3000/api/v1/users/${userId}`, {
       method: 'PATCH',
@@ -99,13 +108,19 @@ class App extends Component {
       body: JSON.stringify({user: this.state.user})
     })
     .then(res => res.json())
-    .then(data => console.log(data))
-console.log(this.state.user)
+    .then(data => {
+      this.setState({
+        user: data
+      })
+    })
+    .then(this.setState({
+      redirect: <Redirect to='/profile'/>
+    }))
   }
 
 
 
-  render() {
+  // render() {
 
   createUser = (e) => {
     e.preventDefault()
@@ -152,18 +167,15 @@ console.log(this.state.user)
           />
           <img src={this.image} style={{ alignSelf: 'center', height: 85, width: 450,}} alt="banner"/>
 
-
-
-          {localStorage.getItem('token') === null ? <h1> You're not logged in!</h1> : <Route exact path="/quiz" render = {() => (
-            <Quiz userInfo={this.state.user} handleQuizForm={this.handleQuizForm}/>)}/>}
+          <Route exact path="/quiz" render = {() => (
+            <Quiz redirect={this.state.redirect} userInfo={this.state.user} handleQuizForm={this.handleQuizForm}/>)}/>
 
           <Route exact path="/profile" render = {() => (
             <Profile handleClick={this.handleClick} user={this.state.user}/>)}/>
-      
+
           <Route exact path="/CreateUser" render = {() => (
             <CreateUser onUChange={this.onUChange} user={this.state.user} createUser={this.createUser}/>)} />
 
-          <Route exact path="/Quiz" component={Quiz} />
         </Router>
       </div>
     );
