@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image, Menu } from 'semantic-ui-react'
 import zombieImage from '../images/zombie-girl.png'
 
 
@@ -30,7 +30,7 @@ render(){
             </div>
             <Menu.Item
               name='Quiz'
-              onClick={props.handleClick}
+              onClick={this.props.handleClick}
             />
             <div className="meta text-wrap">
               <small>STATUS: {"I'm alive"}</small>

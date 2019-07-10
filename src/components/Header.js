@@ -44,7 +44,7 @@ class Header extends React.Component {
             onChange={(e) => this.props.onUChange("username", e.target.value)}/>
           </Menu.Item>
           <Menu.Item>
-            <Input name='password' type='text' placeholder='Password'
+            <Input name='password' type='password' placeholder='Password'
             onChange={(e) => this.props.onUChange("password", e.target.value)}/>
           </Menu.Item>
           <Menu.Item

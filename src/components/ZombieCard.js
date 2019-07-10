@@ -24,7 +24,7 @@ class ZombieCard extends React.Component {
           </div>
           <Menu.Item
             name='Quiz'
-            onClick={props.handleClick}
+            onClick={this.props.handleClick}
           />
           <div className="meta text-wrap">
             <small>STATUS: {"Brainnnsssss...."}</small>
