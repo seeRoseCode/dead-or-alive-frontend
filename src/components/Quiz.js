@@ -9,8 +9,8 @@ import ZombieCard from './ZombieCard'
 class Quiz extends React.Component{
   state={
     zombieScore: 0,
-    zombieStatus: false,
-    submitted: false,
+    // zombieStatus: false,
+    // submitted: false,
     questions: [],
     allAnswerData: []
   }

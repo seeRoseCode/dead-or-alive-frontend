@@ -56,7 +56,7 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      // console.log(data)
       if (data.message) {
         alert("Error")
         this.setState({errors: data.message}, () => console.log("Errors:", this.state.errors))
@@ -66,7 +66,7 @@ class App extends Component {
         localStorage.setItem('token', data.jwt)
         window.history.pushState({url: "/profile"}, "", "/profile")
         this.forceUpdate()
-        console.log(this.state.user)
+        // console.log(this.state.user)
       }
     })
 
@@ -78,12 +78,12 @@ class App extends Component {
 
   handleQuizForm = (e, score, user) => {
     let userId = user.userInfo.id
-    console.log(userId)
 
     if(score > 3){
+      let zombieChange = user.userInfo.zombie = !user.userInfo.zombie
       this.setState({
         user: { ...this.state.user,
-        zombie: true
+        zombie: zombieChange
         }
       })
     }
@@ -97,7 +97,7 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(data => console.log(data))
-    console.log(this.state.user)
+console.log(this.state.user)
   }
 
 
