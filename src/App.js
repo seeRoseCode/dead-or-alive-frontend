@@ -109,7 +109,6 @@ console.log(this.state.user)
 
   createUser = (e) => {
     e.preventDefault()
-
     let object = {
       username: this.state.user.username,
       password: this.state.user.password,
@@ -137,6 +136,11 @@ console.log(this.state.user)
     })
   }
 
+    // handleLogout = () => {
+    //   localStorage.removeItem('token')
+    //   this.setState({ redirect: <Redirect to='/' /> })
+    // }
+
   render() {
 
     return (
@@ -151,6 +155,10 @@ console.log(this.state.user)
             onUChange={this.onUChange}
           />
           <img src={this.image} style={{ alignSelf: 'center', height: 85, width: 450,}} alt="banner"/>
+
+
+//           <Route exact path="/CreateUser" render = {() => (
+//             <CreateUser onUChange={this.onUChange} user={this.state.user} createUser={this.createUser}/>)} />
 
 
 
