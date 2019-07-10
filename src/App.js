@@ -18,7 +18,7 @@ class App extends Component {
       username: " ",
       password: " ",
       id: "",
-      img_url: " ",
+      img_url: null,
       zombie: false,
       location_id: " ",
       quiz_id: " "

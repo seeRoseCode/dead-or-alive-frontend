@@ -5,8 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0;
 }
+
+.backgroundImg{
+  object-fit: cover;
+}
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -14,13 +25,17 @@ code {
 }
 
 .ZombieCard {
-  background-image: url("https://cdn.instructables.com/FXN/IWO8/GT6ZDY28/FXNIWO8GT6ZDY28.LARGE.jpg?auto=webp&width=548");
+  background-image: url("https://media.giphy.com/media/JV3wQ2C3YdHMY/giphy.gif");
+  /* background-image: url("https://cdn.instructables.com/FXN/IWO8/GT6ZDY28/FXNIWO8GT6ZDY28.LARGE.jpg?auto=webp&width=548"); */
+  /* background-image: url('https://media.giphy.com/media/3oKIPiqfUtLCnIKxRS/giphy.gif'); */
   height: 100vh;
   background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .humanCard {
-  background-image: url("https://cdn.instructables.com/F47/62PM/GT6ZDWXY/F4762PMGT6ZDWXY.LARGE.jpg?auto=webp&width=652");
+  /* background-image: url("https://cdn.instructables.com/F47/62PM/GT6ZDWXY/F4762PMGT6ZDWXY.LARGE.jpg?auto=webp&width=652"); */
+  background-image: url("https://media.giphy.com/media/MBsJ0FR5EvgqvUQwS2/giphy.gif");
   background-size: 100%;
   height: 100vh;
   background-repeat: no-repeat;
@@ -33,4 +48,8 @@ code {
   background-size: 100%;
   height: 100vh;
   background-repeat: no-repeat;
+}
+
+.myFilter{
+ filter: brightness(0.55) contrast(1.25) grayscale(0.31) hue-rotate(223deg) saturate(1.24) sepia(0.24) ;
 }
