@@ -78,6 +78,7 @@ class App extends Component {
 
   handleQuizForm = (e, score, user) => {
     let userId = user.userInfo.id
+    console.log(userId)
 
     if(score > 3){
       this.setState({
@@ -102,7 +103,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.user)
     return (
       <div className="App">
         <Router>
