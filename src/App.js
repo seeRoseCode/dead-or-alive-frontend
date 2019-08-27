@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-// import logo from './logo.svg';
 import './App.css';
-// import MapContainer from './components/MapContainer'
-import Header from './components/Header'
-import Quiz from './components/Quiz'
+import Navbar from './components/Navbar'
+import Login from './views/Login'
+import SignUp from './views/SignUp'
 
+import Quiz from './components/Quiz'
 import CreateUser from './components/CreateUser'
 import Profile from './components/Profile'
 
 
 class App extends Component {
-
-  state = {
-    redirect: " ",
+  state={
+    redirect: '',
     user: {
-      username: " ",
-      password: " ",
+      username: "",
+      password: "",
       id: "",
-      img_url: null,
-      zombie: false,
-      location_id: " ",
-      quiz_id: " "
-    },
+      img_url: "",
+      zombie: false,  
+    }
   }
+
 
   image = require('./images/bannerlogo.png')
 
@@ -44,21 +42,18 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(e.target)
-
     let object = {
       username: this.state.user.username,
       password: this.state.user.password
     }
-
-    fetch('http://localhost:3000/api/v1/login', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json', Accepts: 'application/json'},
-    body: JSON.stringify({user: object })
+    
+    fetch('http://localhost:3000/users', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', Accepts: 'application/json'},
+      body: JSON.stringify({user: object })
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       if (data.message) {
         alert("Error")
         this.setState({errors: data.message}, () => console.log("Errors:", this.state.errors))
@@ -68,7 +63,6 @@ class App extends Component {
         localStorage.setItem('token', data.jwt)
         window.history.pushState({url: "/profile"}, "", "/profile")
         this.forceUpdate()
-        // console.log(this.state.user)
       }
     })
 
@@ -76,6 +70,34 @@ class App extends Component {
 
   onUChange = (key, value) => {
     this.setState({user: {...this.state.user, [key]: value}})
+  }
+
+  createUser = (e) => {
+    e.preventDefault()
+    let object = {
+      username: this.state.user.username,
+      password: this.state.user.password,
+      img_url: this.state.user.img_url
+    }
+    fetch('http://localhost:3000/users', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', Accepts: 'application/json','Access-Control-Allow-Origin':'*'},
+      mode: "cors",
+      body: JSON.stringify({user: object })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.message) {
+        alert("Error")
+        this.setState({errors: data.message}, () => console.log("Errors:", this.state.errors))
+      }
+      else {
+        this.setState({object, redirect: <Redirect to='/profile' /> })
+        localStorage.setItem('token', data.jwt)
+        window.history.pushState({url: "/profile"}, "", "/profile")
+        this.forceUpdate()
+      }
+    })
   }
 
 
@@ -99,7 +121,7 @@ class App extends Component {
         }
       })
     }
-    fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+    fetch(`http://localhost:3000/users/${userId}`, {
       method: 'PATCH',
       headers: {
         'Accept': 'application/json',
@@ -117,70 +139,32 @@ class App extends Component {
       redirect: <Redirect to='/profile'/>
     }))
   }
-
-
-
-  // render() {
-
-  createUser = (e) => {
-    e.preventDefault()
-    let object = {
-      username: this.state.user.username,
-      password: this.state.user.password,
-      img_url: this.state.user.img_url
-    }
-    console.log(object)
-    fetch('http://localhost:3000/api/v1/users', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json', Accepts: 'application/json','Access-Control-Allow-Origin':'*'},
-    mode: "cors",
-    body: JSON.stringify({user: object })
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.message) {
-        alert("Error")
-        this.setState({errors: data.message}, () => console.log("Errors:", this.state.errors))
-      }
-      else {
-        this.setState({object, redirect: <Redirect to='/profile' /> })
-        localStorage.setItem('token', data.jwt)
-        window.history.pushState({url: "/profile"}, "", "/profile")
-        this.forceUpdate()
-      }
-    })
+  
+  handleLogout = () => {
+    localStorage.removeItem('token')
+    this.setState({ redirect: <Redirect to='/' /> })
   }
-
-    // handleLogout = () => {
-    //   localStorage.removeItem('token')
-    //   this.setState({ redirect: <Redirect to='/' /> })
-    // }
 
   render() {
 
     return (
       <div className="App">
+       
         <Router>
           {this.state.redirect}
 
-          <Header
-            handleClick={this.handleClick}
-            handleSubmit={this.handleSubmit}
-            user={this.state.user}
-            onUChange={this.onUChange}
-          />
+          <Navbar handleLogout={this.handleLogout}/>
           <img src={this.image} style={{ alignSelf: 'center', height: 85, width: 450,}} alt="banner"/>
 
+          <Route exact path="/login" render = {() => (<Login redirect={this.state.redirect} />)}/>
+            
+          <Route exact path="/sign_up" render = {() => (<SignUp redirect={this.state.redirect} />)}/>
 
-          <Route exact path="/quiz" render = {() => (
-            <Quiz redirect={this.state.redirect} userInfo={this.state.user} handleQuizForm={this.handleQuizForm}/>)}/>
+          <Route exact path="/quiz" render = {() => (<Quiz redirect={this.state.redirect} userInfo={this.state.user} handleQuizForm={this.handleQuizForm}/>)}/>
 
+          <Route exact path="/profile" render = {() => (<Profile handleClick={this.handleClick} user={this.state.user}/>)}/>
 
-          <Route exact path="/profile" render = {() => (
-            <Profile handleClick={this.handleClick} user={this.state.user}/>)}/>
-
-          <Route exact path="/CreateUser" render = {() => (
-            <CreateUser onUChange={this.onUChange} user={this.state.user} createUser={this.createUser}/>)} />
+          <Route exact path="/CreateUser" render = {() => (<CreateUser onUChange={this.onUChange} user={this.state.user} createUser={this.createUser}/>)} />
 
         </Router>
       </div>
