@@ -1,5 +1,6 @@
 import React from "react";
-import { Menu } from 'semantic-ui-react'
+import { Card, Icon, Image, Menu } from 'semantic-ui-react'
+import zombieImage from '../images/zombie-girl.png'
 
 
 // import { Route } from 'react-router-dom';
@@ -40,7 +41,23 @@ render(){
     </div>
   )
 
-     
+     {/* <Card>
+    <h1></h1>
+    <Image src={props.user.img_url} wrapped ui={false} />
+    <Card.Content>
+      <Card.Header>{props.user.username}</Card.Header>
+      <Card.Description>
+        Location: {props.user.location_id}
+      </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      <a>
+        <Icon name='user' />
+        {"I'm alive"}
+      </a>
+    </Card.Content>
+  </Card>
+  ) */}
 }
 }
 

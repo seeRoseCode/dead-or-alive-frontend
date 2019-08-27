@@ -1,6 +1,6 @@
 import React from "react";
 // import { Route } from 'react-router-dom';
-import { Menu } from 'semantic-ui-react'
+import { Input, Menu } from 'semantic-ui-react'
 
 class ZombieCard extends React.Component {
 

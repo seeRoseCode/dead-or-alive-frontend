@@ -1,5 +1,8 @@
 import React from "react";
-import { Button, Form, Radio, Grid, List } from 'semantic-ui-react'
+import { Route } from 'react-router-dom';
+import { Button, Checkbox, Form, Radio, Grid, Segment, List } from 'semantic-ui-react'
+import HumanCard from './HumanCard'
+import ZombieCard from './ZombieCard'
 
 
 
